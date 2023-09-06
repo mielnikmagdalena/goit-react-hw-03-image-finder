@@ -13,7 +13,15 @@ export class App extends Component {
     images: [], // Tablica obrazków
     loading: false, // Flaga informująca o ładowaniu
     query: '', // Zapytanie użytkownika
+    selectedImage: null, // Wybrany obrazek
   };
+  handleImageClick = image => {
+    this.setState({ selectedImage: image });
+  };
+  closeModal = () => {
+    this.setState({ selectedImage: null });
+  };
+
   handleSearch = query => {
     // Ta metoda obsługuje wyszukiwanie obrazków na podstawie podanego zapytania (query).
     // 1. Na początku możemy ustawić stan loading na true, aby pokazać użytkownikowi, że trwa ładowanie danych.
@@ -42,15 +50,15 @@ export class App extends Component {
       });
   };
   render() {
-    const { images, loading, query } = this.state;
+    const { images, loading } = this.state;
 
     return (
       <div>
         <Searchbar onSubmit={this.handleSearch} />
         {loading ? <Loader /> : <ImageGallery images={images} />}
         {images.length > 0 && !loading && <Button />}
-        {selectedImage && (
-          <Modal image={selectedImage} onClose={this.closeModal} />
+        {this.state.selectedImage && (
+          <Modal image={this.state.selectedImage} onClose={this.closeModal} />
         )}
       </div>
     );
