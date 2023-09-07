@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ImageGalleryItem from 'ImageGalleryItem';
 class ImageGallery extends Component {
   state = {
     currentPage: 1, // Aktualna strona
@@ -29,7 +29,7 @@ class ImageGallery extends Component {
       <div>
         <ul className="gallery">
           {imagesOnCurrentPage.map(image => (
-            <ImageGallery key={image.id} image={image} />
+            <ImageGalleryItem key={image.id} image={image} />
           ))}
         </ul>
         <div className="pagination">
