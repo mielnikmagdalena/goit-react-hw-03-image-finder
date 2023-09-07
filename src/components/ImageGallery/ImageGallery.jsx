@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImageGalleryItem from 'ImageGalleryItem';
+import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem.jsx';
 class ImageGallery extends Component {
   state = {
     currentPage: 1, // Aktualna strona
