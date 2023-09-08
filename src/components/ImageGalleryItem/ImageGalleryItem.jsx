@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './ImageGallery.module.css'; // Zaimportuj moduł CSS
+import styles from './ImageGalleryItem.module.css'; // Zaimportuj moduł CSS
 
 class ImageGalleryItem extends Component {
   constructor(props) {
