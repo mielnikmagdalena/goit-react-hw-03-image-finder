@@ -2,42 +2,36 @@ import React, { Component } from 'react';
 import styles from './Searchbar.module.css'; // Zaimportuj moduł CSS
 
 class Searchbar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      query: '', // Słowo klucz
-    };
-  }
-
-  handleInputChange = event => {
-    this.setState({ query: event.target.value });
+  state = {
+    query: '',
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
+  handleSubmit = e => {
+    e.preventDefault();
     const { query } = this.state;
-    this.props.onSubmit(query); // Przekazujemy słowo klucz do rodzica
+    this.props.onSubmit(query);
+  };
+
+  handleChange = e => {
+    this.setState({ query: e.target.value });
   };
 
   render() {
-    const { query } = this.state;
-
     return (
       <header className={styles.searchbar}>
-        <form onSubmit={this.handleSubmit} className={styles.form}>
+        <form className={styles.form} onSubmit={this.handleSubmit}>
           <button type="submit" className={styles.button}>
-            <span className={styles.buttonLabel}>Search</span>
+            <span className={styles['button-label']}>Search</span>
           </button>
 
           <input
+            className={styles.input}
             type="text"
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
-            value={query}
-            onChange={this.handleInputChange}
-            className={styles.input}
+            value={this.state.query}
+            onChange={this.handleChange}
           />
         </form>
       </header>
