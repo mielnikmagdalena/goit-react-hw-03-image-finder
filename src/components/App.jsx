@@ -15,7 +15,6 @@ export class App extends Component {
     selectedImage: null, // Wybrany obrazek
     page: 1, // Numer strony
   };
-
   handleImageClick = image => {
     this.setState({ selectedImage: image });
   };
