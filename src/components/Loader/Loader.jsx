@@ -1,6 +1,6 @@
 import React from 'react';
-import { TailSpin } from 'react-loader-spinner'; // Importujemy konkretny komponent
+import styles from './Loader.module.css'; // Zaimportuj moduł CSS
 
-const Loader = () => <TailSpin color="#00BFFF" height={50} width={50} />;
+const Loader = () => <div className={styles.loaderContainer}></div>;
 
 export default Loader;
