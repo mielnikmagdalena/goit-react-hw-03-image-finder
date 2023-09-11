@@ -8,7 +8,11 @@ class ImageGallery extends Component {
       <div>
         <ul className={styles.ImageGallery}>
           {this.props.images.map(image => (
-            <ImageGalleryItem key={image.id} image={image} />
+            <ImageGalleryItem
+              key={image.id}
+              image={image}
+              onImageClick={this.props.onImageClick}
+            />
           ))}
         </ul>
       </div>
